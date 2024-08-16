@@ -1,0 +1,136 @@
+---
+output:
+  github_document:
+    html_preview: false
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# Map discontinuity based diagnosis for t-SNE
+
+## Installation
+To install the package from the github repository, use:
+
+```{r}
+if(!require(devtools)) install.packages("devtools") # If not already installed
+devtools::install_github("zhexuandliu/SNE-Accountability-MapContinuity/tsneMDBD")
+```
+
+## Usage
+
+```{r, fig.path="tools/"}
+### load package and calculate embedding
+
+# Load package
+library(tsneMDBD)
+library(RtsneWithP)
+library(ggplot2)
+
+# generate gaussian mixture data as an example
+set.seed(1)
+X = MGMM::rGMM(300, d = 2, k = 3, 
+         means = list(c(2, 0), c(-2, 0), c(0,-4)), 
+         covs = diag(2))
+label = factor(rownames(X))
+
+# run t-SNE
+PCA_x = prcomp(X)
+tsne_out = Rtsne(X, perplexity = 75, theta = 0, 
+                 max_iter = 1000, Y_init = PCA_x$x[, 1:2]) # set theta=0 to run exact tSNE
+ggplot() +
+  geom_point(data = data.frame(
+    x = tsne_out$Y[, 1],
+    y = tsne_out$Y[, 2],
+    label = label
+  ),
+  aes(x = x, y = y, color = label)) + 
+  ggtitle('Original data with labels')
+```
+
+### singularity score
+
+First, we should check the gradient of t-SNE loss function to see whether local minimum is reached. Small gradients shows that we have reached local minimum.
+```{r example1, fig.path="tools/"}
+### check whether local minimum is reached
+gradient_compute(tsne_out$Y, tsne_out$P)[1:10]
+```
+
+After reaching the local minimum, we can calculate the singularity score for fracture-inducing discontinuity diagnosis.
+```{r example2, fig.path="tools/"}
+### calculate singularity score
+
+# compute the singularity score
+sscore = singularity_score_compute(tsne_out$Y, tsne_out$P)
+
+# plot singularity score (colored by quantile)
+plot_singularity_score_q(tsne_out$Y, sscore)
+```
+
+```{r example3, fig.path="tools/"}
+### use singularity score to choose perplexity
+
+# calculate the singularity score for each perplexity candidate
+perplexity_candidates = c(seq(5,90,5))
+sscore_mat= matrix(NA, nrow = dim(X)[1], ncol = length(perplexity_candidates))
+for (i in c(1:length(perplexity_candidates))){
+  tsne_out = Rtsne(X, perplexity = perplexity_candidates[i], theta = 0, 
+                 max_iter = 1000, Y_init = PCA_x$x[, 1:2]) # set theta=0 to run exact tSNE
+  sscore_mat[,i] = singularity_score_compute(tsne_out$Y, tsne_out$P)
+}
+
+# plot the mean of top 5% singularity score versus perplexity
+# choose the elbow point as the perplexity to use
+plot_s_score_perplexity(perplexity_candidates, sscore_mat)
+```
+
+
+### perturbation score
+```{r example4, fig.path="tools/"}
+### calculate perturbation score
+
+# calculate distance matrix in advance to reduce computation
+Y_distsq = as.matrix(dist(tsne_out$Y)**2)
+
+# calculate perturbation score
+pscore = sapply(c(1:dim(X)[1]), function(i){
+  return(perturbation_score_compute(i, X, tsne_out$Y, Ydist_sq = Y_distsq, perplexity = 75, pca_result = PCA_x, length = 0.5))})
+```
+
+```{r example5, fig.path="tools/"}
+ggplot() +
+  geom_point(data = data.frame(
+    x = tsne_out$Y[, 1],
+    y = tsne_out$Y[, 2],
+    score = pscore
+  ),
+  aes(x = x, y = y, color = score)) +
+  viridis::scale_color_viridis(direction = 1,
+                        name = "Perturbation\nScore") + 
+  ggtitle('Embedding with perturbation score')
+ggplot() +
+  geom_point(data = data.frame(
+    x = X[, 1],
+    y = X[, 2],
+    score = pscore
+  ),
+  aes(x = x, y = y, color = score)) +
+  viridis::scale_color_viridis(direction = 1,
+                        name = "Perturbation\nScore") + 
+  ggtitle('Original data with perturbation score')
+```
+
+# Details
+This R package offers functions to calculate singularity score and perturbation score, to diagnose fracture-inducing and overconfidence-inducing discontinuities.
+
+# References
+[1] https://github.com/jkrijthe/Rtsne
+
+[2] L.J.P. van der Maaten and G.E. Hinton. "Visualizing High-Dimensional Data Using t-SNE." Journal of Machine Learning Research 9(Nov):2579-2605, 2008.
