@@ -53,6 +53,7 @@ reached local minimum.
 
 ``` r
 ### check whether local minimum is reached
+
 gradient_compute(tsne_out$Y, tsne_out$P)[1:10]
 #>  [1] -9.002258e-17 -1.692569e-17 -1.887777e-17 -8.305646e-17  1.549520e-17
 #>  [6]  1.774534e-18 -4.506946e-17  2.804973e-17  5.381179e-17 -5.280909e-17
