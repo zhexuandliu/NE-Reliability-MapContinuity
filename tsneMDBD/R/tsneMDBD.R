@@ -252,7 +252,7 @@ get_loss_pointwise_tsne = function(yy, Y, Ydist_sq, Mat){
   yydist_sq = rbind(matrix(yy_Y_dist_sq, nrow=1), as.matrix(Ydist_sq))
   yydist_sq = cbind(matrix(c(0,yy_Y_dist_sq), ncol=1), yydist_sq)
   QMat = (1+yydist_sq)^(-1)
-  QMat = QMat / (sum(QMat) - dim(yy)[1])
+  QMat = QMat / (sum(QMat) - dim(yydist_sq)[1])
   eps = 2^(-52)
   PMat = Mat + eps
   QMat = QMat + eps
@@ -326,7 +326,7 @@ perturbation_score_compute = function(i, X, Y, Ydist_sq = NULL, perplexity, pca_
       }
     }
     Y_new = best_result
-    PScoreVec[dir_id] = sum((Y_new_init - Y_new) ^ 2) ^ 0.5
+    PScoreVec[dir_id] = sum((Y[i,] - Y_new) ^ 2) ^ 0.5
     dir_id = dir_id + 1
   }
   return(max(PScoreVec))
