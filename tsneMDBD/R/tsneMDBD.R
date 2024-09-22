@@ -281,7 +281,7 @@ get_loss_pointwise_tsne = function(yy, Y, Ydist_sq, Mat){
 #' @import RtsneWithP
 #' @export
 perturbation_score_compute = function(i, X, Y, Ydist_sq = NULL, perplexity, pca_result, length){
-  if (is.null(Y_distsq)){
+  if (is.null(Ydist_sq)){
     Ydist_sq = as.matrix(dist(Y)**2)
   }
   PScoreVec = numeric(6)
