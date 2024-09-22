@@ -9,27 +9,7 @@ To install the package from the github repository, use:
 
 ``` r
 if(!require(devtools)) install.packages("devtools") # If not already installed
-#> Loading required package: devtools
-#> Loading required package: usethis
-#> Warning: package 'usethis' was built under R version 4.2.3
 devtools::install_github("zhexuandliu/SNE-Accountability-MapContinuity/tsneMDBD")
-#> Downloading GitHub repo zhexuandliu/SNE-Accountability-MapContinuity@HEAD
-#> RcppParallel (NA -> 5.1.9) [CRAN]
-#> Installing 1 packages: RcppParallel
-#> 
-#>   There is a binary version available but the source version is later:
-#>              binary source needs_compilation
-#> RcppParallel  5.1.7  5.1.9              TRUE
-#> installing the source package 'RcppParallel'
-#> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/l0/vby06rf51fs3v71m749yv3cc0000gn/T/Rtmpi2vWir/remotes3dc86a075707/zhexuandliu-SNE-Accountability-MapContinuity-46eb4e2/tsneMDBD/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/l0/vby06rf51fs3v71m749yv3cc0000gn/T/Rtmpi2vWir/remotes3dc86a075707/zhexuandliu-SNE-Accountability-MapContinuity-46eb4e2/tsneMDBD/DESCRIPTION’
-#>   ─  preparing ‘tsneMDBD’:
-#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
-#>   ─  checking for LF line-endings in source and make files and shell scripts
-#>   ─  checking for empty or unneeded directories
-#>   ─  building ‘tsneMDBD_0.1.0.tar.gz’
-#>      
-#> 
 ```
 
 ## Usage
