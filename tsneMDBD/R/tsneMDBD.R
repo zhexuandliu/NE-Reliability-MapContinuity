@@ -399,7 +399,7 @@ perturbation_score_compute = function(i, X, Y, Ydist_sq = NULL, perplexity, dir_
         }
         OPT = optim(Y_new_init, fn = function(x){
           get_loss_pointwise_tsne(x, Y[-i,], P_new)},
-          gr = function(x){gradient_compute_pointwise(x, Y[-i,], P_new)}, method = 'BFGS', control = list(maxit = 5))
+          gr = function(x){gradient_compute_pointwise(x, Y[-i,], P_new)}, method = 'BFGS', control = list(maxit = 100))
         if (OPT$value < best_value) {
           best_value = OPT$value
           best_result = OPT$par
