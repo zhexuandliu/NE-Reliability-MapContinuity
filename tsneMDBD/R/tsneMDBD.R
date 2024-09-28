@@ -375,7 +375,7 @@ perturbation_score_compute = function(i, X, Y, Ydist_sq = NULL, perplexity, dir_
     dir_id = 1
     for (direction in dir_vec) {
       X_new = rbind(X[i,] + direction * length, X[-i,])
-      print(Sys.time())
+       
       P_new = Rtsne(X_new,
                     initial_dims = initial_dims,
                     perplexity = perplexity,
@@ -384,7 +384,7 @@ perturbation_score_compute = function(i, X, Y, Ydist_sq = NULL, perplexity, dir_
                     Y_init = Y,
                     check_duplicates = FALSE,
                     pca = FALSE)
-      print(Sys.time())
+       
       P_new = P_new$P
       Y_new_init = Y[i,]
       best_value = Inf
@@ -411,7 +411,6 @@ perturbation_score_compute = function(i, X, Y, Ydist_sq = NULL, perplexity, dir_
         #   best_value = OPT$objective
         #   best_result = OPT$solution
         # }
-        print(Sys.time())
       }
 
       Y_new = best_result
