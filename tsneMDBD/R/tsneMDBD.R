@@ -82,7 +82,7 @@ hessian_compute = function(Y, P){
   YDiffDistSq_double = matrix(rep(c(matrix(YDiffDistSq)), each = 2), 2*n, n)
 
   I1 = ((-4) * P / (1 + YDiffDistSq)) %x% diag(2)
-  I3 = 16 * sum(P) / deno**2 * matrix(c(rowSums((matrix(rep(Y,n),2*n,n) - YMatmatrix) / ((1 + YDiffDistSq_double) ^ 2))), 2*n, 1) %*% matrix(c(rowSums((matrix(rep(Y,n),2*n,n) - YMatmatrix) / ((1 + YDiffDistSq_double) ^ 2))), 1, 2*n)
+  I3 = -16 * sum(P) / deno**2 * matrix(c(rowSums((matrix(rep(Y,n),2*n,n) - YMatmatrix) / ((1 + YDiffDistSq_double) ^ 2))), 2*n, 1) %*% matrix(c(rowSums((matrix(rep(Y,n),2*n,n) - YMatmatrix) / ((1 + YDiffDistSq_double) ^ 2))), 1, 2*n)
   I4 = (4 * sum(P) / deno / ((1 + YDiffDistSq)**2)) %x% diag(2)
 
   for (coordinate_idx1 in c(1:2)){
