@@ -250,7 +250,7 @@ get_loss_pointwise_tsne = function(yy, Y, YDistSqP1, PMat){
   yy_Y_dist_sqP1 = 1 + rowsums((Y - matrix(yy, nrow = n-1, ncol = 2, byrow = TRUE))**2)
   YDistSqP1[1,2:n] = yy_Y_dist_sqP1
   YDistSqP1[2:n,1] = yy_Y_dist_sqP1
-  I1 = 2 * (PMat[1,] %*% YDistSqP1[,1])[1,1]
+  I1 = 2 * (PMat[1,] %*% log(YDistSqP1[,1]))[1,1]
   I2 = log(sum(rowsums(1/YDistSqP1))-n)
   return(I1 + I2)
 }
