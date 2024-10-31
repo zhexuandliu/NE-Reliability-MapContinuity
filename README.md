@@ -4,3 +4,13 @@ We provide two diagnostic scores to assess and improve the reliability of neighb
 The method is based on the paper:
 
 Liu, Z., Ma, R., Zhong, Y. (2023) Assessing and improving reliability of neighbor embedding methods: a map-continuity perspective. arXiv:2410.16608.
+
+## Contents
+The directory `neMDBD` contains the R package `neMDBD` for implementation of perturbation score and singularity score.
+
+The directory `RtsneWithP` contains the modified R package `Rtsne` with the similarity matrix as an extra output.
+
+The directory `R codes` contains the R scripts for reproducing the data analysis and examples in the manuscript.
+
+## Get started
+For the quick guide to the two diagnostic scores, please check out https://github.com/zhexuandliu/NE-Reliability-MapContinuity/blob/main/neMDBD/README.md.
