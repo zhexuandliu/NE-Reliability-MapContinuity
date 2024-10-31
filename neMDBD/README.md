@@ -10,27 +10,6 @@ To install the package from the github repository, use:
 ``` r
 if(!require(devtools)) install.packages("devtools") # If not already installed
 devtools::install_github("zhexuandliu/NE-Reliability-MapContinuity/neMDBD")
-#> RtsneWithP (0a663b2c6... -> ff462e945...) [GitHub]
-#> 
-#> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/l0/vby06rf51fs3v71m749yv3cc0000gn/T/RtmpkhAcJz/remotesb0b43c48969/zhexuandliu-NE-Reliability-MapContinuity-ff462e9/RtsneWithP/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/l0/vby06rf51fs3v71m749yv3cc0000gn/T/RtmpkhAcJz/remotesb0b43c48969/zhexuandliu-NE-Reliability-MapContinuity-ff462e9/RtsneWithP/DESCRIPTION’
-#>   ─  preparing ‘RtsneWithP’:
-#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
-#>   ─  cleaning src
-#>   ─  checking for LF line-endings in source and make files and shell scripts
-#>   ─  checking for empty or unneeded directories
-#>   ─  building ‘RtsneWithP_0.17.tar.gz’
-#>      
-#> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/l0/vby06rf51fs3v71m749yv3cc0000gn/T/RtmpkhAcJz/remotesb0b426c60209/zhexuandliu-NE-Reliability-MapContinuity-ff462e9/neMDBD/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/l0/vby06rf51fs3v71m749yv3cc0000gn/T/RtmpkhAcJz/remotesb0b426c60209/zhexuandliu-NE-Reliability-MapContinuity-ff462e9/neMDBD/DESCRIPTION’
-#>   ─  preparing ‘neMDBD’:
-#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
-#>   ─  checking for LF line-endings in source and make files and shell scripts
-#>   ─  checking for empty or unneeded directories
-#>      Omitted ‘LazyData’ from DESCRIPTION
-#>   ─  building ‘neMDBD_0.1.0.tar.gz’
-#>      
-#> 
 devtools::install_github("zhexuandliu/NE-Reliability-MapContinuity/RtsneWithP")
 ```
 
