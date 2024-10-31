@@ -14,3 +14,7 @@ The directory `R codes` contains the R scripts for reproducing the data analysis
 
 ## Get started
 For the quick guide to the two diagnostic scores, please check out https://github.com/zhexuandliu/NE-Reliability-MapContinuity/blob/main/neMDBD/README.md.
+
+To find out how to extract the similarity matrix computed in `Rtsne`, please check out https://github.com/zhexuandliu/NE-Reliability-MapContinuity/blob/main/RtsneWithP/README.md.
+
+For further question and inquiries, please contact Zhexuan Liu (zhexuan.liu2@wisc.edu).
