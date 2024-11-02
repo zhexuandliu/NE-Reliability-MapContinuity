@@ -1,0 +1,3 @@
+load("/Users/zhexuanliu/Desktop/paper codes/2.1 Overview of methods version 2/perturbation scores/len 2/approx1/PScore1.RData")
+PScore1 = PScore
+save(PScore1,file = "/Users/zhexuanliu/Desktop/paper codes/2.1 Overview of methods version 2/perturbation scores/len 2/approx1/PScore1.RData")

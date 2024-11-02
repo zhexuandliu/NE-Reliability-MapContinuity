@@ -1,0 +1,8 @@
+load("/Users/zhexuanliu/Desktop/paper codes/the PACKAGE/Code and data/data/SingleCell/small_atac_gene_activity_10geno_tsne_perplexity_45.RData")
+X
+load("/Users/zhexuanliu/Desktop/paper codes/the PACKAGE/Code and data/data/SingleCell/small_atac_gene_activity_10geno_tsne_perplexity_5.RData")
+X
+Y
+P
+load("/Users/zhexuanliu/Desktop/paper codes/the PACKAGE/Code and data/data/SingleCell/small_atac_gene_activity_10geno_tsne_perplexity_6.RData")
+X

@@ -1,0 +1,8 @@
+load("/Users/zhexuanliu/Desktop/paper codes/the PACKAGE/R codes/data/DeepLearningFeatures/embedding/cifar10_perplexity_125.RData")
+load("/Users/zhexuanliu/Desktop/paper codes/the PACKAGE/R codes/data/DeepLearningFeatures/perturbation_scores/len2/perturbation_score.RData")
+load("/Users/zhexuanliu/Desktop/paper codes/case study (cifar10) version2/perturbation score/test data/len 2/perturbation_score.RData")
+perturbation_score
+length(perturbation_score)
+load("/Users/zhexuanliu/Desktop/paper codes/the PACKAGE/R codes/data/DeepLearningFeatures/embedding/cifar10_DTD_perplexity.RData")
+perplexity
+load("/Users/zhexuanliu/Desktop/paper codes/the PACKAGE/R codes/data/DeepLearningFeatures/embedding/cifar10_DTD_perplexity_100.RData")
