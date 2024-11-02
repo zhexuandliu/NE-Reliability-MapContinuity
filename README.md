@@ -10,7 +10,7 @@ The directory `neMDBD` contains the R package `neMDBD` for implementation of per
 
 The directory `RtsneWithP` contains the modified R package `Rtsne` with the similarity matrix as an extra output.
 
-The directory `R codes` contains the R scripts for reproducing the data analysis and examples in the manuscript.
+The directory `Code and data` contains the R scripts for reproducing the data analysis and examples in the manuscript.
 
 ## Get started
 For the quick guide to the two diagnostic scores, please check out https://github.com/zhexuandliu/NE-Reliability-MapContinuity/blob/main/neMDBD/README.md.
