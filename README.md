@@ -17,4 +17,6 @@ For the quick guide to the two diagnostic scores, please check out https://githu
 
 To find out how to extract the similarity matrix computed in `Rtsne`, please check out https://github.com/zhexuandliu/NE-Reliability-MapContinuity/blob/main/RtsneWithP/README.md.
 
+To check how to draw the LOO loss landscape and other implementation details, please check out the folder `Code and data`.
+
 For further questions and inquiries, please contact Zhexuan Liu (zhexuan.liu2@wisc.edu).
