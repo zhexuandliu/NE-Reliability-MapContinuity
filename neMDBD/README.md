@@ -80,6 +80,8 @@ ggplot() +
 
 ![](tools/example4-2.png)<!-- -->
 
+#### Pre-screening points
+
 ``` r
 ### pre-screening of points on the peripheries using 'dbscan'
 ind = which(!dbscan::is.corepoint(tsne_out$Y, eps = 1, minPts = 10))
