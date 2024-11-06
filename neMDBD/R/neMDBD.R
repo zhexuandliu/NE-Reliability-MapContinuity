@@ -443,7 +443,7 @@ perturbation_score_compute = function(X, Y, perplexity, length, approx, ind = NU
   P_unnormalized = NULL
   beta = NULL
   if (approx == 2){
-    out = tsneMDBD::get_P_tsne(normalize_input(X), perplexity)
+    out = neMDBD::get_P_tsne(normalize_input(X), perplexity)
     P_unnormalized = out$P_unnormalized
     beta = out$beta
   }
@@ -462,7 +462,7 @@ perturbation_score_compute = function(X, Y, perplexity, length, approx, ind = NU
   }
 
   # calculate distance matrix beforehand to save computation
-  Ydist_sq = as.matrix(Dist(tsne_out$Y, square = TRUE))
+  Ydist_sq = as.matrix(Dist(Y, square = TRUE))
 
   ind = if (is.null(ind)) c(1:dim(X)[1]) else ind
 
