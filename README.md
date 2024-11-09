@@ -1,3 +1,4 @@
+# See https://github.com/zhexuandliu/MapContinuity-NE-Reliability for the new repo.
 # A map continuity view of assessing and improving the reliability of neighbor embedding methods
 We provide two diagnostic scores to assess and improve the reliability of neighbor embedding methods based on a map-continuity view. The perturbation score is to diagnose points around the location of overconfidence-inducing discontinuity and the singularity score is to diagnose points of fracture-inducing discontinuity. Our approach is flexible and works as a wrapper around many neighbor embedding algorithms. The R package is now available for t-SNE.
 
